@@ -1,9 +1,28 @@
 <?php
 
-    // plantilla header
-    function header_plantilla()
-    {
-        return '
+// plantilla para el header
+function head_plantilla()
+{
+    return '
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Base Master | A7</title>
+
+                <!-- Bootstrap CSS -->
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+                    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+                <!-- Bootstrap Iconos-->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+            </head>
+        ';
+}
+
+// plantilla header
+function header_plantilla()
+{
+    return '
             <header class="bg-body-tertiary">
             <nav class="navbar">
                 <div class="container-fluid">
@@ -75,10 +94,10 @@
                                         <div class="collapse" id="inventario-collapse">
                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                                 <li class="mt-2">
-                                                    <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Listado</a>
+                                                    <a href="./inventario.php" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Listado</a>
                                                 </li>
                                                 <li class="mt-2">
-                                                    <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Agregar inventario</a>
+                                                    <a href="./agregarInventario.php" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Agregar inventario</a>
                                                 </li>
                                                 <li>
                                                     <div class="text-muted ps-4">
@@ -136,12 +155,12 @@
             </nav>
         </header>
     ';
-    }
+}
 
-    // plantilla footer
-    function footer_plantilla()
-    {
-        return '
+// plantilla footer
+function footer_plantilla()
+{
+    return '
             <footer class="d-flex flex-wrap justify-content-between align-items-center p-3 my-4 border-top bg-black">
                 <div class="col-md-4 d-flex align-items-center">
                     <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2026 || BASE MASTER</span>
@@ -154,16 +173,16 @@
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
         ';
-    }
+}
 
-    function alerta($tipo, $mensaje)
-    {
-        return '
+function alerta($tipo, $mensaje)
+{
+    return '
             <div class="alert alert-$tipo alert-dismissible fade show" role="alert">
                 <strong>$mensaje</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         ';
-    }
+}
 
 ?>

@@ -35,8 +35,8 @@
             }
             ?>
             <div class="my-3 d-flex align-items-center justify-content-between">
-                <h1 class="text-center text-info-emphasis">Listado de entidadades federativas</h1>
-                <a href="./agregarEntidadFederativa.php" class="text-primary text-decoration-none">
+                <h1 class="text-center text-info-emphasis">Listado de inventario</h1>
+                <a href="./agregarInventario.php" class="text-primary text-decoration-none">
                     <i class="bi bi-plus-circle fs-1"></i>
                 </a>
             </div>
@@ -47,7 +47,7 @@
                 include("./libConectBD.php");
                 $cn = Conectarse();
 
-                $rs = pg_exec("SELECT * FROM entidad_federativa ORDER BY 1");
+                $rs = pg_exec("SELECT * FROM inventario ORDER BY 1");
                 if (!$rs) {
                     alerta("danger", "Error de busqueda");
                     exit;
@@ -65,8 +65,12 @@
 
                         <thead>
                             <tr>
-                                <th scope="col">ID entidad federativa</th>
-                                <th scope="col">Nombre de la entidad federativa</th>
+                                <th scope="col">Id inventario</th>
+                                <th scope="col">Id proveedor</th>
+                                <th scope="col">Descripcion</th>
+                                <th scope="col">Precio unitario</th>
+                                <th scope="col">Empaque</th>
+                                <th scope="col">Descripcion inventario</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -76,25 +80,33 @@
                             //Iterar para reportar registros
                             for ($i = 0; $i < $filas; $i++) {
                                 //Obtener columnas
-                                $id = pg_result($rs, $i, 0);
-                                $nombre = pg_result($rs, $i, 1);
+                                $id_inventario = pg_result($rs, $i, 0);
+                                $id_proveedor = pg_result($rs, $i, 1);
+                                $descripcion_inventario = pg_result($rs, $i, 2);
+                                $precio_unitario_inventario = pg_result($rs, $i, 3);
+                                $empaque_inventario = pg_result($rs, $i, 4);
+                                $descripcion_empaque_inventario = pg_result($rs, $i, 5);
 
                                 echo "
                             <tr>
-                                <th scope='row'>$id</th>
+                                <th scope='row'>$id_inventario</th>
 
-                                <td class='text-center'>$nombre</td>
+                                <td class='text-center'>$id_proveedor</td>
+                                <td class='text-center'>$descripcion_inventario</td>
+                                <td class='text-center'>$precio_unitario_inventario</td>
+                                <td class='text-center'>$empaque_inventario</td>
+                                <td class='text-center'>$descripcion_empaque_inventario</td>
 
                                 <td class='align-middle'>
                                     <div class='d-flex justify-content-center gap-3'>
 
-                                        <a href='./agregarEntidadFederativa.php?id=$id' class='btn-sm btn btn-primary'>
+                                        <a href='./agregarInventario.php?id1=$id_inventario&id2=$id_proveedor' class='btn-sm btn btn-primary'>
                                             <i class='bi bi-pencil fs-5'></i>
                                         </a>
 
-                                        <button class='btn btn-danger btn-sm' disabled>
+                                        <a href='./controller/eliminarInventario.php?id1=$id_inventario&id2=$id_proveedor' class='btn btn-danger btn-sm'>
                                             <i class='bi bi-trash fs-5'></i>
-                                        </button>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>

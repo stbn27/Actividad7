@@ -14,15 +14,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 </head>
 
+
 <body data-bs-theme="dark">
 
     <?php
-
-    include("plantilla.php");
-
+    session_start();
+    
+    include "plantilla.php";
     echo header_plantilla();
 
-    session_start();
     if (isset($_SESSION['mensaje'])) {
         echo $_SESSION['mensaje'];
         unset($_SESSION['mensaje']);
@@ -176,9 +176,9 @@
                                             <i class='bi bi-pencil fs-5'></i>
                                         </button>
 
-                                        <button class='btn btn-danger btn-sm' disabled>
+                                        <a href='./controller/eliminarCliente.php?id=$id' class='btn btn-danger btn-sm'>
                                             <i class='bi bi-trash fs-5'></i>
-                                        </button>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
