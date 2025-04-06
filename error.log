@@ -1,2 +1,0 @@
-[06-Apr-2025 16:50:40 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/esteban/Documentos/web_/actividad7/clientes.php on line 27
-[06-Apr-2025 16:50:43 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/esteban/Documentos/web_/actividad7/clientes.php on line 27
