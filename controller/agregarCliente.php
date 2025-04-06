@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 if (!empty($_POST["btnregistrarcliente"])) {
     $nombre_cliente = $_POST['nombre'];
@@ -69,16 +69,16 @@ if (!empty($_POST["btnregistrarcliente"])) {
         $result = pg_query($cn, $query);
 
         if ($result) {
-            $_SESSION['mensaje'] = "<div class='alert alert-success mt-5' role='alert'>Registro exitoso</div>";
+            //$_SESSION['mensaje'] = "<div class='alert alert-success mt-5' role='alert'>Registro exitoso</div>";
             header("Location: ../clientes.php");
         } else {
-            $_SESSION['mensaje'] = "<div class='alert alert-danger mt-5' role='alert'>Ocurrió un error al intentar registrar <br> <p>Error: " . pg_last_error($cn) . "</p></div>";
+            //$_SESSION['mensaje'] = "<div class='alert alert-danger mt-5' role='alert'>Ocurrió un error al intentar registrar <br> <p>Error: " . pg_last_error($cn) . "</p></div>";
             header("Location: ../agregarCliente.php");
         }
 
         Desconectarse($cn);
     } else {
-        $_SESSION['mensaje'] = "<div class='alert alert-warning mt-3' role='alert'>Rellene todos los campos requeridos</div>";
+        //$_SESSION['mensaje'] = "<div class='alert alert-warning mt-3' role='alert'>Rellene todos los campos requeridos</div>";
         header("Location: ../agregarCliente.php");
     }
 }

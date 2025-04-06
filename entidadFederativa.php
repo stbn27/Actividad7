@@ -17,7 +17,7 @@
 <body data-bs-theme="dark">
 
     <?php
-    session_start();
+    //session_start();
     include "plantilla.php";
 
     echo header_plantilla();
@@ -29,10 +29,10 @@
         <div class="container mx-auto">
 
             <?php
-            if (isset($_SESSION['mensaje'])) {
-                echo $_SESSION['mensaje'];
-                unset($_SESSION['mensaje']);
-            }
+            // if (isset($_SESSION['mensaje'])) {
+            //     echo $_SESSION['mensaje'];
+            //     unset($_SESSION['mensaje']);
+            // }
             ?>
             <div class="my-3 d-flex align-items-center justify-content-between">
                 <h1 class="text-center text-info-emphasis">Listado de entidadades federativas</h1>

@@ -17,18 +17,9 @@
 <body data-bs-theme="dark">
 
     <?php
-
-    ini_set('log_errors', 1);
-    ini_set('error_log', __DIR__ . '/error.log'); 
     include("plantilla.php");
 
     echo header_plantilla();
-
-    session_start();
-    if (isset($_SESSION['mensaje'])) {
-        echo $_SESSION['mensaje'];
-        unset($_SESSION['mensaje']);
-    }
     ?>
 
 
@@ -64,25 +55,12 @@
                     <thead>
                         <tr class="text-center">
                             <th scope="col">ID</th>
-                            <!-- <th scope="col">Nombre</th>
-                        <th scope="col">Apellido paterno</th>
-                        <th scope="col">Apellido materno</th> -->
                             <th scope="col">Nombre completo</th>
                             <th scope="col">Sexo</th>
                             <th scope="col">Curp</th>
                             <th scope="col">Compañia cliente</th>
-                            <!-- <th scope="col">Domicilio 1</th>
-                        <th scope="col">Domicilio 2</th>
-                        <th scope="col">Ciudad</th>
-                        <th scope="col">Entidad federativa</th>
-                        <th scope="col">C. P.</th> -->
                             <th scope="col">Dirección</th>
-                            <!-- <th scope="col">Teléfono</th>
-                        <th scope="col">Celular</th> -->
                             <th>Contacto</th>
-                            <!-- <th scope="col">Banco</th>
-                        <th scope="col">Tajeta crédito</th>
-                        <th scope="col">Expiración tarjeta</th> -->
                             <th scope="col">Entidad bancaria</th>
                             <th scope="col">Acciones</th>
                         </tr>
@@ -175,9 +153,9 @@
                                 <td class="align-middle">
                                     <div class="d-flex flex-column justify-content-center gap-3">
 
-                                        <button type="button" class="btn-sm btn btn-primary" data-id="$id" data-bs-toggle="modal" data-bs-target="#edicionCliente">
+                                        <a href="./agregarCliente.php?id=$id" class="btn btn-warning btn-sm">
                                             <i class="bi bi-pencil fs-5"></i>
-                                        </button>
+                                        </a>
 
                                         <button class="btn btn-danger btn-sm" disabled>
                                             <i class="bi bi-trash fs-5"></i>
@@ -200,189 +178,6 @@
         </div>
     </main>
 
-    <!-- Modal de edición de datos -->
-    <div class="modal fade" id="edicionCliente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="edicionClienteLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="edicionClienteLabel">
-                        Editar cliente
-                    </h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form id="formEditar" class="row g-3 needs-validation" novalidate method="post">
-                        <!-- Nombre y apellidos del cliente -->
-                        <div class="col-md-4">
-                            <label for="form_nombre_cliente" class="form-label">Nombre(s)</label>
-                            <input name="nombre" type="text" class="form-control" id="form_nombre_cliente" required>
-                            <p class="invalid-feedback ms-2">Campo requerido</p>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="form_paterno_cliente" class="form-label">Apellidos Paterno</label>
-                            <input name="paterno" type="text" class="form-control" id="form_paterno_cliente" required>
-                            <p class="invalid-feedback ms-2">Campo requerido</p>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="form_materno_cliente" class="form-label">Apellido Materno</label>
-                            <input name="materno" type="text" class="form-control" id="form_materno_cliente" required>
-                            <p class="invalid-feedback ms-2">Campo requerido</p>
-                        </div>
-
-                        <!-- Sexo, curp y compañia -->
-                        <div class="col-md-4">
-                            <label for="form_sexo_cliente" class="form-label">Sexo</label>
-                            <div class="mb-3">
-                                <select name="sexo" class="form-select" required aria-label="Seleccionar sexo"
-                                    id="form_sexo_cliente">
-                                    <option value="M">Masculino</option>
-                                    <option value="F">Femenino</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <label for="form_curp_cliente" class="form-label">Curp</label>
-                            <input name="curp" type="text" class="form-control" id="form_curp_cliente" required>
-                            <p class="invalid-feedback ms-2">Campo requerido</p>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="form_compania_cliente" class="form-label">Compañia cliente</label>
-                            <input name="compania" type="text" class="form-control" id="form_compania_cliente" required>
-                            <p class="invalid-feedback ms-2">Campo requerido</p>
-                        </div>
-
-                        <!-- Dirección del cliente -->
-                        <div class="col-12">
-                            <label for="form_domicilio_prin_cliente" class="form-label">Domicilio principal:</label>
-                            <input name="domicilio_prin" type="text" class="form-control"
-                                id="form_domicilio_prin_cliente" placeholder="1234 Main St" required>
-                            <p class="invalid-feedback ms-2">Campo requerido</p>
-                        </div>
-                        <div class="col-12">
-                            <label for="form_domicilio_alt_cliente" class="form-label">Domicilio alterno:</label>
-                            <input name="domicilio_alt" type="text" class="form-control" id="form_domicilio_alt_cliente"
-                                placeholder="Apartment, or floor">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="form_ciudad_cliente" class="form-label">Ciudad</label>
-                            <input name="ciudad" type="text" class="form-control" id="form_ciudad_cliente" required>
-                            <p class="invalid-feedback ms-2">Campo requerido</p>
-                        </div>
-
-                        <div class="col-md-4">
-                            <label for="form_entidad_fed_cliente" class="form-label">Entidad federativa</label>
-                            <div class="mb-3">
-                                <select name="entidad_fed" class="form-select" required
-                                    aria-label="Seleccionar entidad federativa" id="form_entidad_fed_cliente">
-                                    <?php
-                                    $cn = Conectarse();
-                                    $query = "SELECT * FROM entidad_federativa ORDER BY 1";
-                                    $resultado = pg_exec($query);
-                                    if (!$resultado) {
-                                        alerta("danger", "Error de busqueda");
-                                        exit;
-                                    }
-                                    //Obtener el numero de filas de la consulta
-                                    $filas = pg_numrows($resultado);
-                                    if ($filas == 0) {
-                                        alerta("info", "No se hallo algún registro");
-                                        exit;
-                                    } else {
-                                        for ($i = 0; $i < $filas; $i++) {
-                                            $id = pg_result($resultado, $i, 0);
-                                            $nombre = pg_result($resultado, $i, 1);
-                                            echo "<option value='$id'>$nombre</option>";
-                                        }
-                                    }
-                                    //Liberar Result Set
-                                    ($resultado);
-                                    Desconectarse($cn);
-                                    ?>
-                                </select>
-                                <div class="invalid-feedback">Opción inválida</div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="form_cp_cliente" class="form-label">Código postal</label>
-                            <input name="cp" type="text" class="form-control" id="form_cp_cliente" required>
-                            <p class="invalid-feedback ms-2">Campo requerido</p>
-                        </div>
-
-                        <!-- Contacto del cliente -->
-                        <div class="col-md-6">
-                            <label for="form_telefono_cliente" class="form-label">Teléfono</label>
-                            <input name="telefono" type="text" class="form-control" id="form_telefono_cliente" required>
-                            <p class="invalid-feedback ms-2">Campo requerido</p>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="form_celular_cliente" class="form-label">Celular</label>
-                            <input name="celular" type="text" class="form-control" id="form_celular_cliente">
-                        </div>
-
-                        <!-- Datos bancarios del cliente -->
-                        <div class="col-md-4">
-                            <label for="form_banco_cliente" class="form-label">Banco</label>
-                            <div class="mb-3">
-                                <select name="banco" class="form-select" required aria-label="Seleccionar banco"
-                                    id="form_banco_cliente">
-                                    <?php
-                                    $cn = Conectarse();
-                                    $query = "SELECT * FROM banco ORDER BY 1";
-                                    $resultado = pg_exec($query);
-                                    if (!$resultado) {
-                                        alerta("danger", "Error de busqueda");
-                                        exit;
-                                    }
-                                    //Obtener el numero de filas de la consulta
-                                    $filas = pg_numrows($resultado);
-                                    if ($filas == 0) {
-                                        alerta("info", "No se hallo algún registro");
-                                        exit;
-                                    } else {
-                                        for ($i = 0; $i < $filas; $i++) {
-                                            $id = pg_result($resultado, $i, 0);
-                                            $nombre = pg_result($resultado, $i, 1);
-                                            echo "<option value='$id'>$nombre</option>";
-                                        }
-                                    }
-                                    //Liberar Result Set
-                                    ($resultado);
-                                    Desconectarse($cn);
-                                    ?>
-                                </select>
-                                <div class="invalid-feedback">Opción inválida</div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-5">
-                            <label for="form_tarjeta_cliente" class="form-label">Tarjeta de crédito</label>
-                            <input name="tarjeta" type="text" class="form-control" id="form_tarjeta_cliente">
-                        </div>
-                        <div class="col-md-3">
-                            <label for="form_expiracion_cliente" class="form-label">Expiración tarjeta</label>
-                            <input name="expiracion" type="text" class="form-control" id="form_expiracion_cliente">
-                        </div>
-
-                        <input name="id_cliente" type="hidden" id="form_cliente_id" name="id">
-
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-success float-end" id="form_id_cliente">Actualizar
-                                información</button>
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-                        Cancelar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <?php
@@ -414,107 +209,6 @@
                 })
         })();
 
-        function handleFormSubmit(formId) {
-            const form = document.getElementById(formId);
-            const formData = new FormData(form);
-
-            fetch('./controller/clienteController.php?action=update', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Oculta el modal
-                        const modal = bootstrap.Modal.getInstance(document.getElementById('edicionCliente'));
-                        modal.hide();
-
-                        console.log(data.cliente);
-                        // Actualiza la fila en la tabla
-                        actualizarFilaCliente(data.cliente);
-
-                        // Opcional: mensaje de éxito
-                        alert('Cliente actualizado correctamente');
-                    } else {
-                        alert('Error al actualizar: ' + data.message);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
-
-        function actualizarFilaCliente(cliente) {
-            const fila = document.getElementById(`cliente-row-${cliente.id}`);
-            if (fila) {
-                const celdas = fila.querySelectorAll('td');
-
-                // Actualizar la información en las celdas
-                fila.querySelector('th[scope="row"]').textContent = cliente.id; // ID
-
-                // Celda de Nombre
-                celdas[0].querySelector('span:nth-child(2)').textContent = cliente.nombre;
-                celdas[0].querySelector('p:nth-child(2) span:nth-child(2)').textContent = cliente.materno;
-                celdas[0].querySelector('p:nth-child(3) span:nth-child(2)').textContent = cliente.paterno;
-
-                celdas[1].textContent = cliente.sexo; // Sexo
-                celdas[2].textContent = cliente.curp; // CURP
-                celdas[3].textContent = cliente.compania; // Compañía
-
-                // Celda de Domicilio
-                celdas[4].querySelector('p:nth-child(1) span:nth-child(2)').textContent = cliente.domicilio_prin;
-                celdas[4].querySelector('p:nth-child(2) span:nth-child(2)').textContent = cliente.domicilio_alt;
-                celdas[4].querySelector('p:nth-child(3) span:nth-child(2)').textContent = cliente.ciudad;
-                celdas[4].querySelector('p:nth-child(4) a').textContent = cliente.entidad_fed;
-                celdas[4].querySelector('p:nth-child(5) span:nth-child(2)').textContent = cliente.cp;
-
-                // Celda de Contacto
-                celdas[5].querySelector('p:nth-child(1) span:nth-child(2)').textContent = cliente.celular;
-                celdas[5].querySelector('p:nth-child(2) span:nth-child(2)').textContent = cliente.telefono;
-
-                // Celda de Banco
-                celdas[6].querySelector('p:nth-child(1) a').textContent = cliente.banco;
-                celdas[6].querySelector('p:nth-child(2) span:nth-child(2)').textContent = cliente.tarjeta;
-                celdas[6].querySelector('p:nth-child(3) span:nth-child(2)').textContent = cliente.expiracion;
-            }
-        }
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const modal = document.getElementById('edicionCliente');
-
-            modal.addEventListener('show.bs.modal', function (event) {
-                const button = event.relatedTarget;
-                const clienteId = button.getAttribute('data-id');
-
-                // Consulta AJAX al servidor
-                fetch(`./controller/clienteController.php?action=get&id=${clienteId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        document.getElementById('form_cliente_id').value = data.id_cliente.trim();
-                        document.getElementById('form_nombre_cliente').value = data.nombre_cliente.trim();
-                        document.getElementById('form_paterno_cliente').value = data.apellido_paterno_cliente.trim();
-                        document.getElementById('form_materno_cliente').value = data.apellido_materno_cliente.trim();
-                        document.getElementById('form_sexo_cliente').value = data.sexo_cliente.trim();
-                        document.getElementById('form_curp_cliente').value = data.curp_cliente.trim();
-                        document.getElementById('form_compania_cliente').value = data.compania_cliente.trim();
-                        document.getElementById('form_domicilio_prin_cliente').value = data.domicilio_cliente.trim();
-                        document.getElementById('form_domicilio_alt_cliente').value = data.domicilio_alterno_cliente;
-                        document.getElementById('form_ciudad_cliente').value = data.ciudad_cliente.trim();
-                        document.getElementById('form_entidad_fed_cliente').value = data.id_entidad_federativa.trim();
-                        document.getElementById('form_cp_cliente').value = data.codigo_postal_cliente.trim();
-                        document.getElementById('form_telefono_cliente').value = data.telefono_cliente.trim();
-                        document.getElementById('form_celular_cliente').value = data.celular_cliente;
-                        document.getElementById('form_banco_cliente').value = data.id_banco.trim();
-                        document.getElementById('form_tarjeta_cliente').value = data.tarjeta_credito_cliente.trim();
-                        document.getElementById('form_expiracion_cliente').value = data.fecha_expiracion_tarjeta_credito_cliente.trim();
-
-                    })
-                    .catch(error => {
-                        console.error('Error al obtener cliente:', error);
-                    });
-            });
-        });
     </script>
 
 

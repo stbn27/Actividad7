@@ -17,7 +17,7 @@
 <body data-bs-theme="dark">
 
     <?php
-    session_start();
+
     include("plantilla.php");
 
     echo header_plantilla();
@@ -37,12 +37,6 @@
                 </a>
             </div>
 
-            <?php
-            if (isset($_SESSION['mensaje'])) {
-                echo $_SESSION['mensaje'];
-                unset($_SESSION['mensaje']);
-            }
-            ?>
         </div>
 
         <!-- Verificar si es modificación o agregación -->

@@ -17,7 +17,6 @@
 <body data-bs-theme="dark">
 
     <?php
-    session_start();
     include("plantilla.php");
 
     echo header_plantilla();
@@ -36,11 +35,6 @@
             <?php
             include "./libConectBD.php";
             
-            
-            if (isset($_SESSION['mensaje'])) {
-                echo $_SESSION['mensaje'];
-                unset($_SESSION['mensaje']); 
-            }
             ?>
 
             <form id="formEditar" class="row g-3 needs-validation" novalidate method="post" action="./controller/agregarCliente.php">
