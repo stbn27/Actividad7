@@ -3,7 +3,7 @@
     // plantilla header
     function header_plantilla()
     {
-        return <<<EOT
+        return '
             <header class="bg-body-tertiary">
             <nav class="navbar">
                 <div class="container-fluid">
@@ -135,13 +135,13 @@
                 </div>
             </nav>
         </header>
-    EOT;
+        ';
     }
 
     // plantilla footer
     function footer_plantilla()
     {
-        return <<<EOT
+        return '
             <footer class="d-flex flex-wrap justify-content-between align-items-center p-3 my-4 border-top bg-black">
                 <div class="col-md-4 d-flex align-items-center">
                     <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2026 || BASE MASTER</span>
@@ -153,17 +153,17 @@
             </footer>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
-        EOT;
+        ';
     }
 
     function alerta($tipo, $mensaje)
     {
-        return <<<EOT
+        return '
             <div class="alert alert-$tipo alert-dismissible fade show" role="alert">
                 <strong>$mensaje</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        EOT;
+        ';
     }
 
 ?>

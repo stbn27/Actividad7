@@ -17,7 +17,7 @@
 <body data-bs-theme="dark">
 
     <?php
-    include("plantilla.php");
+    include "plantilla.php";
 
     echo header_plantilla();
     ?>
@@ -88,7 +88,7 @@
                             $tarjeta = pg_result($rs, $i, 14);
                             $banco = pg_result($rs, $i, 15);
                             $fechaExp = pg_result($rs, $i, 16);
-                            echo <<<EOT
+                            echo '
                             <tr id="cliente-row-$id">
                                 <th scope="row">$id</th>
                                 <td>
@@ -163,7 +163,7 @@
                                     </div>
                                 </td>
                             </tr>
-                        EOT;
+                        ';
                         }
                         ?>
                     </tbody>
