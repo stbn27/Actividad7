@@ -79,26 +79,26 @@
                                 $id = pg_result($rs, $i, 0);
                                 $nombre = pg_result($rs, $i, 1);
 
-                                echo <<<EOT
+                                echo "
                             <tr>
-                                <th scope="row">$id</th>
+                                <th scope='row'>$id</th>
 
-                                <td class="text-center">$nombre</td>
+                                <td class='text-center'>$nombre</td>
 
-                                <td class="align-middle">
-                                    <div class="d-flex justify-content-center gap-3">
+                                <td class='align-middle'>
+                                    <div class='d-flex justify-content-center gap-3'>
 
-                                        <a href="./agregarEntidadFederativa.php?id=$id" class="btn-sm btn btn-primary">
-                                            <i class="bi bi-pencil fs-5"></i>
+                                        <a href='./agregarEntidadFederativa.php?id=$id' class='btn-sm btn btn-primary'>
+                                            <i class='bi bi-pencil fs-5'></i>
                                         </a>
 
-                                        <button class="btn btn-danger btn-sm" disabled>
-                                            <i class="bi bi-trash fs-5"></i>
+                                        <button class='btn btn-danger btn-sm' disabled>
+                                            <i class='bi bi-trash fs-5'></i>
                                         </button>
                                     </div>
                                 </td>
                             </tr>
-                        EOT;
+                        ";
                             }
                             ?>
                         </tbody>

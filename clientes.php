@@ -108,82 +108,81 @@
                             $tarjeta = pg_result($rs, $i, 14);
                             $banco = pg_result($rs, $i, 15);
                             $fechaExp = pg_result($rs, $i, 16);
-                            echo <<<EOT
-                            <tr id="cliente-row-$id">
-                                <th scope="row">$id</th>
+                            echo "
+                            <tr id='cliente-row-$id'>
+                                <th scope='row'>$id</th>
                                 <td>
-                                    <p class="m-0">
-                                        <span class="text-secondary d-block small">Nombre(s):
+                                    <p class='m-0'>
+                                        <span class='text-secondary d-block small'>Nombre(s):
                                         </span><span>$nombre</span>
                                     </p>
-                                    <p class="m-0">
-                                        <span class="text-secondary d-block small">Apellido materno:
+                                    <p class='m-0'>
+                                        <span class='text-secondary d-block small'>Apellido materno:
                                         </span><span>$ap1</span>
                                     </p>
-                                    <p class="m-0">
-                                        <span class="text-secondary d-block small">Apelido paterno:
+                                    <p class='m-0'>
+                                        <span class='text-secondary d-block small'>Apellido paterno:
                                         </span><span>$ap2</span>
                                     </p>
                                 </td>
-                                <td class="text-center">$sexo</td>
+                                <td class='text-center'>$sexo</td>
                                 <td>$curp</td>
-                                <td class="text-center">$comp</td>
+                                <td class='text-center'>$comp</td>
                                 <td>
-                                    <p class="m-0">
-                                        <span class="text-secondary small d-block">Domicilio 1: </span><span>$dom1</span>
+                                    <p class='m-0'>
+                                        <span class='text-secondary small d-block'>Domicilio 1: </span><span>$dom1</span>
                                     </p>
-                                    <p class="m-0">
-                                        <span class="text-secondary small d-block">Domicilio 2: </span><span>$dom2</span>
+                                    <p class='m-0'>
+                                        <span class='text-secondary small d-block'>Domicilio 2: </span><span>$dom2</span>
                                     </p>
-                                    <p class="m-0">
-                                        <span
-                                            class="text-secondary small d-block">Ciudad:</span><span>$ciudad</span>
+                                    <p class='m-0'>
+                                        <span class='text-secondary small d-block'>Ciudad:</span><span>$ciudad</span>
                                     </p>
-                                    <p class="m-0">
-                                        <span class="text-secondary small d-block">Entidad federativa:
-                                        </span><span><a href="./agregarEntidadFederativa.php?id=$entidad">$entidad</a></span>
+                                    <p class='m-0'>
+                                        <span class='text-secondary small d-block'>Entidad federativa:
+                                        </span><span><a href='./agregarEntidadFederativa.php?id=$entidad'>$entidad</a></span>
                                     </p>
-                                    <p class="m-0">
-                                        <span class="text-secondary small d-block">Código postal:
+                                    <p class='m-0'>
+                                        <span class='text-secondary small d-block'>Código postal:
                                         </span><span>$cp</span>
                                     </p>
                                 </td>
                                 <td>
-                                    <p class="m-0">
-                                        <span class="text-secondary small d-block">Celular: </span><span>$celular</span>
+                                    <p class='m-0'>
+                                        <span class='text-secondary small d-block'>Celular: </span><span>$celular</span>
                                     </p>
-                                    <p class="m-0">
-                                        <span class="text-secondary small d-block">Télefono: </span><span>$telefono</span>
+                                    <p class='m-0'>
+                                        <span class='text-secondary small d-block'>Teléfono: </span><span>$telefono</span>
                                     </p>
                                 </td>
                                 <td>
-                                    <p class="m-0">
-                                        <span class="text-secondary d-block small">Banco: </span><a
-                                            class="text-primary" href="#">$banco</a>
+                                    <p class='m-0'>
+                                        <span class='text-secondary d-block small'>Banco: </span><a
+                                            class='text-primary' href='#'>$banco</a>
                                     </p>
-                                    <p class="m-0">
-                                        <span class="text-secondary d-block small">Tarjeta de crédito:
+                                    <p class='m-0'>
+                                        <span class='text-secondary d-block small'>Tarjeta de crédito:
                                         </span><span>$tarjeta</span>
                                     </p>
-                                    <p class="m-0">
-                                        <span class="text-secondary d-block small">Expiración tarjeta:
+                                    <p class='m-0'>
+                                        <span class='text-secondary d-block small'>Expiración tarjeta:
                                         </span><span>$fechaExp</span>
                                     </p>
                                 </td>
-                                <td class="align-middle">
-                                    <div class="d-flex flex-column justify-content-center gap-3">
+                                <td class='align-middle'>
+                                    <div class='d-flex flex-column justify-content-center gap-3'>
 
-                                        <button type="button" class="btn-sm btn btn-primary" data-id="$id" data-bs-toggle="modal" data-bs-target="#edicionCliente">
-                                            <i class="bi bi-pencil fs-5"></i>
+                                        <button type='button' class='btn-sm btn btn-primary' data-id='$id' data-bs-toggle='modal' data-bs-target='#edicionCliente'>
+                                            <i class='bi bi-pencil fs-5'></i>
                                         </button>
 
-                                        <button class="btn btn-danger btn-sm" disabled>
-                                            <i class="bi bi-trash fs-5"></i>
+                                        <button class='btn btn-danger btn-sm' disabled>
+                                            <i class='bi bi-trash fs-5'></i>
                                         </button>
                                     </div>
                                 </td>
                             </tr>
-                        EOT;
+                        ";
                         }
                         ?>
                     </tbody>
