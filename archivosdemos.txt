@@ -1,1 +1,48 @@
 https://github.com/stbn27/Actividad7.git
+
+
+git clone --branch main --single-branch https://github.com/stbn27/Actividad7.git actividad
+
+
+CREATE OR REPLACE FUNCTION delete_pedido_llamada_cliente_trigger()
+RETURNS trigger
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    DELETE FROM pedido WHERE id_cliente = OLD.id_cliente;
+    DELETE FROM llamada_cliente WHERE id_cliente = OLD.id_cliente;
+    RETURN OLD;
+END;
+$$;
+
+DROP TRIGGER IF EXISTS borra_pedido_llamada_cliente_trigger ON cliente;
+CREATE TRIGGER borra_pedido_llamada_cliente_trigger
+BEFORE DELETE ON cliente
+FOR EACH ROW
+EXECUTE PROCEDURE delete_pedido_llamada_cliente_trigger();
+
+
+
+
+DROP FUNCTION IF EXISTS delete_inventario_function_trigger() CASCADE;
+CREATE OR REPLACE FUNCTION delete_inventario_function_trigger()
+    RETURNS TRIGGER
+    LANGUAGE plpgsql
+AS
+$$
+BEGIN
+    -- Eliminar registros en `artículo`
+    DELETE FROM articulo WHERE id_inventario = OLD.id_inventario;
+    -- Eliminar registros en `catálogo`
+    DELETE FROM catalogo WHERE id_inventario = OLD.id_inventario;
+
+    RETURN old;
+END;
+$$;
+
+DROP TRIGGER IF EXISTS delete_inventario_trigger ON inventario;
+CREATE TRIGGER delete_inventario_trigger
+    BEFORE DELETE
+    ON inventario
+    FOR EACH ROW
+EXECUTE FUNCTION delete_inventario_function_trigger();
