@@ -68,19 +68,19 @@ function header_plantilla()
                                             Llamadas
                                             <i class="bi bi-caret-left-fill"></i>
                                         </button>
-                                        <div class="collapse" id="llamada-collapse">
+                                        <div class="collapse show" id="llamada-collapse">
                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                                 <li class="mt-2">
-                                                    <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Listado</a>
+                                                    <a href="./llamadaCliente.php" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Listado</a>
                                                 </li>
                                                 <li class="mt-2">
-                                                    <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Agregar llamada</a>
+                                                    <a href="./llamadaClienteAgregar.php" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Agregar llamada</a>
                                                 </li>
                                                 <li class="mt-2">
-                                                    <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Tipos de llamdas</a>
+                                                    <a href="./tipoLlamadaCliente" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Tipos de llamdas</a>
                                                 </li>
                                                 <li class="mt-2">
-                                                    <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Agregar tipo de llamada</a>
+                                                    <a href="./tipoLlamadaClienteAgregar" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Agregar tipo de llamada</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -91,7 +91,7 @@ function header_plantilla()
                                             Inventario
                                             <i class="bi bi-caret-left-fill"></i>
                                         </button>
-                                        <div class="collapse" id="inventario-collapse">
+                                        <div class="collapse show" id="inventario-collapse">
                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                                 <li class="mt-2">
                                                     <a href="./inventario.php" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Listado</a>
@@ -111,10 +111,10 @@ function header_plantilla()
                                                     <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Agregar artículo</a>
                                                 </li>
                                                 <li class="mt-2">
-                                                    <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Catálogo</a>
+                                                    <a href="./catalogo.php" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Catálogo</a>
                                                 </li>
                                                 <li class="mt-2">
-                                                    <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Agregar Catálogo</a>
+                                                    <a href="./catalogoAgregar.php" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Agregar Catálogo</a>
                                                 </li>
                                                 <li class="mt-2">
                                                     <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Proveedor</a>
@@ -131,13 +131,13 @@ function header_plantilla()
                                             Pedidos
                                             <i class="bi bi-caret-left-fill"></i>
                                         </button>
-                                        <div class="collapse" id="pedido-collapse">
+                                        <div class="collapse show" id="pedido-collapse">
                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                                 <li class="mt-2">
-                                                    <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Listado</a>
+                                                    <a href="./pedido.php" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Listado</a>
                                                 </li>
                                                 <li class="mt-2">
-                                                    <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Agregar pedido</a>
+                                                    <a href="./pedidoAgregar.php" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Agregar pedido</a>
                                                 </li>
                                             </ul>
                                         </div>

@@ -57,7 +57,7 @@
             } else {
                 ?>
 
-                <table class="table table-dark table-hover align-top">
+                <table class="table table-hover align-top">
 
                     <thead>
                         <tr class="text-center">
