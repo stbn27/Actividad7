@@ -1,7 +1,7 @@
 https://github.com/stbn27/Actividad7.git
 
 
-git clone --branch main --single-branch https://github.com/stbn27/Actividad7.git actividad
+git clone --branch main --single-branch https://github.com/stbn27/Actividad7.git actividad7
 
 
 CREATE OR REPLACE FUNCTION delete_pedido_llamada_cliente_trigger()
