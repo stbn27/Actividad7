@@ -3,7 +3,7 @@
 function Conectarse(){
     $host = "localhost";
     $db = "celulares";
-    $user = "stbn";
+    $user = "php";
     $pass = "1234";
     $port = "5432";
 

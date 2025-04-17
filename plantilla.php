@@ -117,7 +117,7 @@ function header_plantilla()
                                                     <a href="./catalogoAgregar.php" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Agregar Catálogo</a>
                                                 </li>
                                                 <li class="mt-2">
-                                                    <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Proveedor</a>
+                                                    <a href="./proveedor.php" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Proveedor</a>
                                                 </li>
                                                 <li class="mt-2">
                                                     <a href="#" class="link-body-emphasis d-inline-flex text-decoration-none ms-4">Agregar proveedor</a>
