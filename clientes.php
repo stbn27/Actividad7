@@ -40,7 +40,7 @@
         <div class="table-responsive">
 
             <?php
-            include("./libConectBD.php");
+            include "./libConectBD.php";
             $cn = Conectarse();
 
             $rs = pg_exec("SELECT * FROM cliente ORDER BY 1 DESC");
