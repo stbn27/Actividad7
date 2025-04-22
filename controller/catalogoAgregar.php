@@ -20,6 +20,31 @@ if (!empty($_POST["btnAgregarCatalogo"])) {
     $campo_6 = trim($_POST['instrucciones_catalogo']);
 
 
+    $oid_foto = null;
+
+    if (isset($_FILES['foto_catalogo']) && $_FILES['foto_catalogo']['error'] == UPLOAD_ERR_OK) {
+        $tmp = $_FILES['foto_catalogo']['tmp_name'];
+        $file = fopen($tmp, 'rb');
+
+        if ($file) {
+            pg_query($cn, 'BEGIN'); // Necesario para trabajar con Large Objects
+
+            $oid_foto = pg_lo_create($cn);
+            $lo = pg_lo_open($cn, $oid_foto, 'w');
+
+            while (!feof($file)) {
+                $data = fread($file, 8192);
+                pg_lo_write($lo, $data);
+            }
+
+            fclose($file);
+            pg_lo_close($lo);
+
+            pg_query($cn, 'COMMIT');
+        }
+    }
+
+
 
     if ($tipo == "update") {
         // Modificación
@@ -47,14 +72,17 @@ if (!empty($_POST["btnAgregarCatalogo"])) {
             id_inventario, 
             id_proveedor, 
             descripcion_catalogo, 
-            instrucciones_catalogo
+            instrucciones_catalogo,
+            foto_catalogo
         ) VALUES (
             $campo_1, 
             $campo_2, 
             '$campo_3', 
             '$campo_4', 
-            '$campo_6'
+            '$campo_6',
+            " . ($oid_foto !== null ? $oid_foto : 'NULL') . "
         )";
+        
         $rs = pg_query($cn, $query);
 
 

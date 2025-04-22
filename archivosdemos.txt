@@ -46,3 +46,17 @@ CREATE TRIGGER delete_inventario_trigger
     ON inventario
     FOR EACH ROW
 EXECUTE FUNCTION delete_inventario_function_trigger();
+
+
+
+Instalación de:
+php-api
+
+
+php.ini
+extension=pgsql_lo
+
+sudo apt-get update
+sudo apt-get install php-pgsql
+sudo systemctl restart apache2
+sudo systemctl restart php-fpm

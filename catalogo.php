@@ -74,6 +74,7 @@
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
+                        <!-- <td class='text-center'>$campo_5</td> -->
 
                         <tbody>
                             <?php
@@ -93,7 +94,17 @@
                                 <td class='text-center'><a href='./agregarInventario.php?id1=$campo_2&id2=$campo_3' class='text-text-decoration-none fw-bold text-warning'>$campo_2</a></td>
                                 <td class='text-center'><a href='./agregarProveeedor.php?id=$campo_3' class='text-text-decoration-none fw-bold text-warning'>$campo_3</a></td>
                                 <td class='text-center'>$campo_4</td>
-                                <td class='text-center'>$campo_5</td>
+
+                                <td class='text-center'>";
+                                
+                                    if (!empty($campo_5) && $campo_5 != 0) {
+                                        echo "<img src='../controller/mostrarImagen.php?id_imagen=$campo_1' alt='Img' style='max-width: 60px; height: auto;'>";
+                                    } else {
+                                        echo 'Sin imagen';
+                                    }
+                                    echo "
+                                </td>
+
                                 <td class='text-center'>$campo_6</td>
                                 <td class='align-middle'>
                                     <div class='d-flex justify-content-center gap-3 w-100'>
